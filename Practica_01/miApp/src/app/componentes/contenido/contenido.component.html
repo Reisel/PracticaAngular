@@ -1,34 +1,52 @@
 <nav class="navbar navbar-light bg-primary d-flex justify-content-center">
-    <button (click)="metodo1()" type="button" class="btn btn-danger ml-1 mr-1">Ejemplo 1</button>
-    <button (click)="metodo2()" type="button" class="btn btn-danger ml-1 mr-1">Ejemplo 2</button>
+    <button type="button" class="btn btn-danger ml-1 mr-1" (click)="cambiar()">
+        Primary</button>
+    <button type="button" class="btn btn-danger ml-1 mr-1" (click)="cambiar2()">
+        Primary</button>
 </nav>
 
-<div class="container mt-3">
+<div class="container content">
     <div class="row">
-        <div class="col ">
+        <div class="col mt-4">
+            <div class="card ngCard bg-primary">
+                <div>
+                    <h1 class="card-body d-flex justify-content-center" [ngClass]="isActive ? 'color1' : 'color2'">
+                        {{titulo}}
+                    </h1>
+                    <form [formGroup]="miForm">
+                        <input type="text" class="form-control" id="nombre" formControlName="nombre"/>
+                        <button class="btn btn-success" (click)="enviar()">Enviar</button>
+                    </form>
+                </div>
+                <!-- <app-externo2 [titulo]="titulo"></app-externo2> -->
+            </div>
+        </div>
+        <div class="col mt-4">
             <div class="card ngCard bg-primary">
                 <div class="card-body d-flex justify-content-center">
-                    <h1>{{titulo1}}</h1>
-                    <h6>{{titulo2}}</h6>
+                    <h1 [ngStyle]= "objetoCSS">Titulo {{titulo2}}</h1>
                 </div>
             </div>
         </div>
-        <div class="col ">
+        <div class="col mt-4">
             <div class="card ngCard bg-primary">
                 <div class="card-body d-flex justify-content-center">
-                    <h1>{{1 + 1}}</h1>
+                    <h1>Titulo 1</h1>
+                    <h1 *ngIf="estaActivo()">NgIf</h1>
                 </div>
-            </div>
-        </div>
-        <div class="col ">
-            <div class="card ngCard bg-primary">
-                <div class="card-body d-flex justify-content-center">
-                    <h1>Titulo</h1>
-                    <div *ngIf="activo">
-                        <h4>Angular</h4>
-                        <h4>Es un framework</h4>
+                <div>
+                    <h3>nombre: {{nombre|uppercase}}</h3>
+                    <h5>edad: {{edad}}</h5>
+                    <div *ngFor="let sueldo of sueldos">
+                        <h4>{{sueldo}}</h4>
                     </div>
+                </div>   
+                <div class="card-body" *ngFor="let ej of ejercicio">
+                    <app-externo2 (contador)="hijoPadre($event)" [datos]="ej"></app-externo2>
                 </div>
+            </div>
+            <div>
+                <h2 MiDirectiva>Mi directiva</h2>
             </div>
         </div>
     </div>

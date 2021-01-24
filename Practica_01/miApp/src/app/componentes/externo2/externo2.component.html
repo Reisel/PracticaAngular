@@ -1,0 +1,10 @@
+<!-- <h3>Mi titulo: {{titulo}}</h3> -->
+
+<div class="bg-success mt-2">
+    <h4>Nombre: {{datos.nombre}}</h4>
+    <h4>Cargo: {{datos.cargo}}</h4>
+    <h4>Sueldo: {{datos.sueldo | currency: "USD"}}</h4>
+    <h4>Ingreso: {{datos.ingreso | date: "MM/dd/yy"}}</h4>
+
+    <button class="btn btn-primary mb-2" (click)="aumentarConteo()">Aumentar</button>
+</div>

@@ -1,4 +1,16 @@
-.ngCard{
-    height:400px;
+.content{
+    height: 115vh;
+}
+
+.ng-card {
+    height: 700px;
     border: none;
+}
+
+.color1 {
+    color: green;
+}
+
+.color2 {
+    color: yellow;
 }

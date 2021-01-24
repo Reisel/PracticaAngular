@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contenido',
@@ -6,21 +7,67 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contenido.component.css']
 })
 export class ContenidoComponent implements OnInit {
-  public titulo1: string ="Card 1";
-  public titulo2: string ="Nuevo Titulo";
-  public activo: boolean = false;
+  titulo: string ="Interpolacion";
+  titulo2: string ="Dos";
+  isActive: boolean = false;
+  nombre: string = "juan";
+  edad: number = 22;
+  sueldos: string[] = ["97000", "13000", "20000"];
+  objetoCSS: object = {color:"yellow"};
+  miForm: FormGroup;
 
-  constructor() { }
+  public ejercicio = [
+    {
+      nombre: "Juan X",
+      cargo: "Developer",
+      sueldo: "1800",
+      ingreso: "Friday, April 15, 2016",
+    },
+    {
+      nombre: "Pedro X",
+      cargo: "CTO",
+      sueldo: "3900",
+      ingreso: "Monday, march 14, 2007",
+    },
+    {
+      nombre: "Diana X",
+      cargo: "Developer Jr",
+      sueldo: "700",
+      ingreso: "Tuesday, August 31, 2018",
+    }
+  ]
+  constructor(private form: FormBuilder) {}
 
   ngOnInit(): void {
+    this.miForm = this.form.group({
+      nombre: new FormControl("",[
+        Validators.required,
+        Validators.minLength(8)])
+    });
   }
 
-  metodo1(){
-    this.titulo2 = "Nuevo Titulo 2"
+  cambiar(){
+    this.titulo = "Cambio!!";
+    this.titulo2 = "2";
+    this.isActive = false;
   }
 
-  metodo2(){
-    this.activo = true;
+  cambiar2(){
+    this.titulo2 = "Dos";
+    this.isActive = true;
   }
 
+  estaActivo(): boolean{
+    return this.isActive
+  }
+
+  hijoPadre(){
+    console.log(3);
+  }
+
+  enviar(){
+    console.log(this.miForm.value);
+    console.log(this.miForm.status);
+    console.log(this.miForm.valid);
+  }
 }

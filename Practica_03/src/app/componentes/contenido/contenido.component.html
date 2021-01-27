@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light bg-primary d-flex justify-content-center">
+    <button type="button" class="btn btn-danger btn-switch .ml-3" (click)="contenido_rutas = 'Formularios Reactivos'">
+        Formularios Reactivos    
+    </button>
+    <button type="button" class="btn btn-danger btn-switch" (click)="contenido_rutas = 'Dependencias'">
+        Dependencias
+    </button>
+    <button type="button" class="btn btn-danger btn-switch" (click)="contenido_rutas = 'RXJS'">
+        RXJS
+    </button>
+</nav>
+
+<div [ngSwitch]="contenido_rutas">
+    <div *ngSwitchCase="'Formularios Reactivos'">
+        <app-form></app-form>
+    </div>
+    <div *ngSwitchCase="'Dependencias'">
+        <app-dependencias></app-dependencias>
+    </div>
+
+    <div *ngSwitchCase="'RXJS'">
+        <app-subscripciones></app-subscripciones>
+    </div>
+</div>

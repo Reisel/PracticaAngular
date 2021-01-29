@@ -1,0 +1,10 @@
+<div>
+    <h3 class="mt-5 mb-3">Editar Comentarios</h3>
+    <form [formGroup]="form">
+        <input type="text" class="form-control m-2" placeholder="Titulo" name="titulo" formControlName="titulo">
+        <input type="number" class="form-control m-2" placeholder="Likes" name="likes" formControlName="likes">
+        <input type="text" class="form-control m-2" placeholder="Comentarios" name="comentarios" formControlName="comentarios">
+
+        <button type="button" class="btn btn-primary mt-3" (click)="editarComentario()">Editar</button>   
+    </form>
+</div>

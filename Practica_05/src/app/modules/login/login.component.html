@@ -1,0 +1,18 @@
+<div class="container-fluid bg-success d-flex justify-content-center align-items-center login-select">
+  <div class="card bg-transparent boder-0 d-flex align-items-center">
+    <i style="font-size: 2rem;" class="fas fa-users" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded] = "!isCollapsed" aria-controls="collapseBasic"></i>
+    <div class="card-body">
+
+      <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
+        <form [formGroup]="form">
+            <input type="text" class="form-control mt-3" placeholder="Usuario" name="usuario"         formControlName="usuario"/>
+            <input type="password" class="form-control mt-3" placeholder="Contraseña" name="contraseña" formControlName="contraseña"/>
+            <button type="button" class="btn btn-dark mt-3" (click)="addUser()">
+              Enviar
+            </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
